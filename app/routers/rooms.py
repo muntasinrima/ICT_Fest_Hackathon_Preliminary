@@ -83,7 +83,7 @@ def availability(
             Booking.room_id == room.id,
             Booking.status == "confirmed",
             Booking.start_time < day_end,
-            Booking.start_time > day_start,
+            Booking.start_time >= day_start,
         )
         .order_by(Booking.start_time.asc(), Booking.id.asc())
         .all()
